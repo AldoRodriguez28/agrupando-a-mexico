@@ -1,0 +1,46 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+import { Picture } from "astro:assets";
+import logoAMexico from "../assets/logo_agrupando_a_mexico.png";
+import logoCongreso from "../assets/congreso.png";
+import logoDiputradoPaul from "../assets/diputado_paul.png";
+
+
+---
+
+<div class="mt-0 mb-16">
+  <h2 class="text-center text-slate-500">En colaboración con :</h2>
+  <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
+    <Picture
+    class="size-[10rem] h-auto"
+    src={logoAMexico}
+    alt="logo de agrupando a mexico"
+    widths={[200, 400, 600]}
+    sizes="(max-width: 800px) 100vw, 620px"
+    loading="eager"
+    format="jpg"
+  />
+  <Picture
+  class="w-[10rem] h-auto"
+  src={logoCongreso}
+  alt="logo de agrupando a mexico"
+  widths={[200, 400, 600]}
+  sizes="(max-width: 800px) 100vw, 620px"
+  loading="eager"
+  format="jpg"
+/>
+<Picture
+class="w-[12rem] h-auto"
+src={logoDiputradoPaul}
+alt="logo de agrupando a mexico"
+widths={[200, 400, 600]}
+sizes="(max-width: 800px) 100vw, 620px"
+loading="eager"
+format="jpg"
+/>
+
+
+
+  </div>
+</div>

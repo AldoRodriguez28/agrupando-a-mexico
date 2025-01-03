@@ -1,0 +1,71 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+
+const features = [
+  {
+    title: "Lo que tienes que saber de cíberseguridad",
+    description:
+"Desde proteger tus dispositivos hasta evitar fraudes en línea, la ciberseguridad es esencial en nuestra vida digital. Conoce las mejores prácticas, como la autenticación de dos factores y la gestión de contraseñas, para mantener tu información segura.",    icon: "bx:bxs-bulb",
+  },
+  {
+    title: "Vida real vs la vida en Internet",
+    description:
+"Las redes sociales muestran solo una versión idealizada de la vida. Es importante recordar que detrás de cada publicación hay una realidad más compleja. Aprender a distinguir entre lo virtual y lo real te ayudará a mantener una perspectiva equilibrada.",    icon: "bx:git-compare",
+  },
+  {
+    title: "¿Por que  me vigilan si no soy rico y famoso?",
+    description:
+      "En la era digital, tu información personal es más valiosa de lo que imaginas. Empresas y gobiernos utilizan datos para tomar decisiones estratégicas, desde marketing personalizado hasta vigilancia masiva. Aunque no seas una celebridad, tu privacidad sigue siendo importante.",
+    icon: "bx:bxs-data",
+  },
+  {
+    title: "Ciberbullying, sexting, grooming... Oh, 'probleming'",
+    description:
+"Las amenazas digitales son cada vez más comunes y afectan a todas las edades. Comprender los riesgos y aprender a prevenirlos puede marcar la diferencia entre un entorno digital seguro y uno lleno de peligros. Educar y protegernos es el primer paso.",    icon: "bx:bxs-bot",
+  },
+  {
+    title: "La ciencia de las redes sociales",
+    description:
+"Las redes sociales no son solo plataformas de interacción; son herramientas que moldean cómo pensamos, consumimos información y nos relacionamos. Entender sus algoritmos y dinámicas es clave para usarlas de forma efectiva y saludable.",    icon: "bx:bxs-file-find",
+  },
+  {
+    title: "Fake news: noticias falsas",
+    description:
+"Las noticias falsas pueden influir en decisiones importantes y distorsionar la realidad. Identificar fuentes confiables y aprender a verificar información son habilidades esenciales en un mundo donde la desinformación está a un clic de distancia.",    icon: "bx:bxs-user",
+  },
+  {
+    title: "Construir una cultura de ciberseguridad",
+    description:
+"La ciberseguridad no es solo responsabilidad de expertos en tecnología. Todos podemos contribuir creando hábitos seguros, como usar contraseñas fuertes, evitar enlaces sospechosos y educar a otros sobre los riesgos en línea.",    icon: "bx:bxs-user",
+  },
+];
+---
+
+<div class="mt-16 md:mt-0 text-center">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Mitos y realidades que todo buen <code class="italic">"profe"</code>   debe saber y contar a sus alumnos
+  </h2>
+  <p class="text-lg mt-4 text-slate-600 text-justify">
+    Hoy en dia, tenemos grandes retos por afrontar como sociedad, 
+    el cambio climatico, la pobreza , las guerras, el hambre, la migracion, 
+    la escacez de recursos, y si; a estsa larga lista se suma otro gran desafio extrordinariamente preocupante llamado
+    <code>"ciberseguridad"</code>.
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+          <Icon class="text-white" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <p class="text-justify text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>

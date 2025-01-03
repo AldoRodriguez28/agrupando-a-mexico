@@ -1,0 +1,23 @@
+
+<section class="hero bg-blue-100 py-4 text-center"> 
+  <h2 class="text-[15px] font-bold mb-0 lg:text-3xl ">¡Días para el lanzamiento!</h2>
+    <div id="countdown" class="text-lg font-semibold text-blue-700 lg:text-3xl"></div>
+    <script>
+      const countdownElement = document.getElementById('countdown');
+      const eventDate = new Date('2025-01-15T10:00:00');
+      const interval = setInterval(() => {
+        const now = new Date();
+        const diff = eventDate - now;
+        if (diff <= 0) {
+          countdownElement.textContent = "¡El evento ya comenzó!";
+          clearInterval(interval);
+          return;
+        }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        countdownElement.textContent = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+      }, 1000);
+    </script>
+  </section>

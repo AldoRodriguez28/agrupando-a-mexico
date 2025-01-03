@@ -1,0 +1,107 @@
+---
+import Link from "./ui/link.astro";
+---
+
+
+<div id="registrate" class="flex flex-col mt-[6rem]">
+ 
+
+    <div class="min-h-screen bg-gray-50 flex items-center justify-center px-6">
+      <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Información de contacto -->
+        <div>
+          <h3 class="text-green-500 font-semibold text-lg uppercase mb-2 mt-6">Registro</h3>
+          <h1 class="text-4xl font-bold text-gray-900 mb-4">Registrate para asistir al evento</h1>
+          <p class="text-gray-600 mb-8 text-justify">
+            Usa este formulario para registrar tus datos y asi obtener tu pase de asistencia al evento y con tu informacion 
+            posteriormente podremos mandarte regalos como e-books o alertas de eventos especiales
+          </p>
+          <p class="text-gray-500 text-sm mb-1">Siéntete libre de contactarnos via correo electronico o por telefono:</p>
+          <p class="text-gray-800 font-medium mb-1">agrupandoamexico.ac@gmail.com</p>
+          <p class="text-gray-800 font-medium">+52 (228) 305 1090 </p>
+        </div>
+    
+        <!-- Formulario -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <form action="#" method="POST">
+            <div class="grid grid-cols-1 gap-6">
+              <!-- First name -->
+              <div>
+                <label for="first-name" class="block text-sm font-medium text-gray-600">Nombre</label>
+                <input
+                  type="text"
+                  id="first-name"
+                  name="first-name"
+                  placeholder="Nombre"
+                  class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                />
+              </div>
+    
+              <!-- Correo electronico-->
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-600">Correo</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="last-namemail"
+                  placeholder="tucorreo@ejemplo.com"
+                  class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                />
+              </div>
+  
+    
+              <!-- Whatsapp -->
+              <div>
+                <label for="whatsapp" class="block text-sm font-medium text-gray-600">Celular (Whatsapp)</label>
+                <input
+                  type="tel"
+                  id="whatsapp"
+                  name="whatsapp"
+                  placeholder="Numero de whatsapp"
+                  class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+    
+          
+    
+            <!-- Select -->
+            <div class="mt-6">
+              <label for="isMaestro" class="block text-sm font-medium text-gray-600">¿Eres maestro? (opcional)</label>
+              <select
+                id="isMaestro"
+                name="isMaestro"
+                class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              >
+                <option value="" disabled selected>Selecciona una opcion</option>
+                <option value="option1">Si</option>
+                <option value="option2">No</option>
+              </select>
+            </div>
+    
+            <!-- Submit -->
+            <div class="mt-8">
+              <button
+                type="submit"
+                class="w-full bg-green-500 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-600 focus:ring-4 focus:ring-green-400 transition"
+              >
+                Enviar
+              </button>
+            </div>
+    
+            <!-- Footer -->
+            <p class="text-sm text-gray-500 text-center mt-4">
+              Al hacer clic en Enviar, acepta que agrupando a mexico pueda procesar sus datos personales según sea necesario para la solicitud de información.
+              Haz leído  <a href="#" class="text-green-500 underline">
+                declaración de protección de datos</a>.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+    </div>
+    
+
