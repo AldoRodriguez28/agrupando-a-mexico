@@ -4,7 +4,7 @@ export default defineConfig({
   output: 'static',
   build: {
     rollupOptions: {
-      external: ['virtual:astro-icon'],
+      external: ['virtual:astro-icon'], // Marca el módulo como externo
     },
   },
 });
