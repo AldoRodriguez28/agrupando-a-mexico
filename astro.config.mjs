@@ -6,7 +6,5 @@ export default defineConfig({
     rollupOptions: {
       external: ['virtual:astro-icon'],
     },
-    site: 'https://AldoRodriguez28.github.io',
-    base: 'agrupando-a-mexico',
   },
 });
