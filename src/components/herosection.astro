@@ -1,0 +1,124 @@
+---
+const { title, subtitle, image, children } = Astro.props;
+---
+
+<style>
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(128, 0, 128, 0.8), rgba(0, 0, 128, 0.8));
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    z-index: 3;
+  }
+  :global(.logo-container img) {
+    max-width: 150px;
+    height: auto;
+  }
+  .cta-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cta-button {
+    background: linear-gradient(90deg, rgba(0, 0, 128, 0.9), rgba(128, 0, 128, 0.9));
+    border: 2px solid white;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  .cta-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+  @media screen and (max-width: 768px), screen and (max-device-width: 768px) {
+    .hero h1 {
+      font-size: 8rem;
+    }
+    .hero p {
+      font-size: 4rem;
+    }
+    .logo-container {
+      flex-direction: row;
+      align-items: center;
+      top: 5%;
+    }
+    .logo-container img {
+      max-width: 22rem;
+    }
+    .cta-container {
+      flex-direction: row;
+      gap: 6rem;
+      align-items: center;
+    }
+    .cta-button {
+      font-size: 2.5rem;
+    }
+  }
+</style>
+
+<section class="hero" style={`background-image: url(${image})`}>
+  <div class="logo-container">
+    <img src="/src/assets/logo_agrupando_a_mexico_white.png" alt="Logo_agrupando_a_mexico" />
+    <img src="/src/assets/Grupo-Loga-white.png" alt="Logo_loga" />
+  </div>
+
+  <div class="hero-content">
+    <h1>{title}</h1>
+    <p>{subtitle}</p>
+    <div class="fecha_conferencia">
+      <p>{children}</p>  
+    </div>
+    <div class="cta-container">
+      <a href="#speakers"  class="cta-button">Saber m&aacute;s</a>
+      <a href="https://forms.gle/zMsnHRj1AECLDZtx5"  class="cta-button">Reg&iacute;strate</a>
+    </div>
+  </div>
+</section>

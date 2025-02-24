@@ -1,5 +1,53 @@
 ---
-import Link from "./ui/link.astro";
+import swal from 'sweetalert'; // Solo si usas NPM
+
+let errorMessage = "";
+let successMessage = "";
+let new_lead = {
+  "nombre": "",
+  "telefono": "",
+  "email": "",
+  "esMaestro": false
+}
+
+// Verifica si es una solicitud POST
+if (Astro.request.method === 'POST') {
+  const data = await Astro.request.formData();
+
+  // Captura los datos del formulario
+    new_lead.nombre = (data.get("name") as string) ?? ""; // Nombre predeterminado vacío
+    new_lead.email = (data.get("email") as string) ?? ""; // Email predeterminado vacío
+    new_lead.telefono = (data.get("whatsapp") as string) ?? ""; // Whatsapp predeterminado vacío
+    new_lead.esMaestro = data.get("isMaestro") === "option1"; // Convertir a booleano
+    // do something with the data
+    console.log({new_lead});
+
+
+    try {
+    // Realiza la solicitud POST al endpoint externo
+    const response = await fetch('http://localhost:5020/api/leads', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(new_lead),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+    successMessage = 'Formulario enviado con éxito.';
+    console.log('Respuesta del servidor:', result);
+      // Mostrar SweetAlert en caso de éxito
+  } catch (error) {
+    errorMessage = 'Hubo un error al enviar el formulario.';
+    console.error('Error:', error);
+    // Mostrar SweetAlert en caso de error
+
+  }
+}
 ---
 
 
@@ -23,17 +71,19 @@ import Link from "./ui/link.astro";
     
         <!-- Formulario -->
         <div class="bg-white rounded-lg shadow-lg p-8">
-          <form action="#" method="POST">
+          <form id="lead-form" method="POST">
             <div class="grid grid-cols-1 gap-6">
               <!-- First name -->
               <div>
                 <label for="first-name" class="block text-sm font-medium text-gray-600">Nombre</label>
                 <input
                   type="text"
-                  id="first-name"
-                  name="first-name"
-                  placeholder="Nombre"
+                  id="name"
                   class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  name="name"
+                  placeholder="Nombre"
+                  required
+                  title="Introduce un whatsapp valido ejemplo 229 155 1234xºxº"
                 />
               </div>
     
@@ -43,9 +93,12 @@ import Link from "./ui/link.astro";
                 <input
                   type="email"
                   id="email"
-                  name="last-namemail"
+                  name="email"
                   placeholder="tucorreo@ejemplo.com"
                   class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  required
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                  title="Introduce un correo válido (e.g., ejemplo@dominio.com)"
                 />
               </div>
   
@@ -54,11 +107,14 @@ import Link from "./ui/link.astro";
               <div>
                 <label for="whatsapp" class="block text-sm font-medium text-gray-600">Celular (Whatsapp)</label>
                 <input
-                  type="tel"
                   id="whatsapp"
-                  name="whatsapp"
-                  placeholder="Numero de whatsapp"
                   class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  name="whatsapp"
+                  minlength="10" 
+                  maxlength="10" 
+                  placeholder="Numero de whatsapp"
+                  required
+                  title="El telefono debe contener solo numeros 229 123 4567"
                 />
               </div>
             </div>
@@ -72,6 +128,8 @@ import Link from "./ui/link.astro";
                 id="isMaestro"
                 name="isMaestro"
                 class="mt-1 w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                required
+                title="Indica si eres maestro o no"
               >
                 <option value="" disabled selected>Selecciona una opcion</option>
                 <option value="option1">Si</option>
@@ -81,10 +139,7 @@ import Link from "./ui/link.astro";
     
             <!-- Submit -->
             <div class="mt-8">
-              <button
-                type="submit"
-                class="w-full bg-green-500 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-600 focus:ring-4 focus:ring-green-400 transition"
-              >
+              <button class="w-full bg-green-500 text-white py-3 rounded-md text-lg font-semibold hover:bg-green-600 focus:ring-4 focus:ring-green-400 transition">
                 Enviar
               </button>
             </div>
@@ -101,7 +156,4 @@ import Link from "./ui/link.astro";
     </div>
 
 </div>
-
-    </div>
-    
 

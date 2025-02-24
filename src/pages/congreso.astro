@@ -1,0 +1,68 @@
+---
+import Speaker from "@components/speaker.astro";
+import HeroSection from "../components/herosection.astro";
+import Stepbystep from "@components/stepbystep.astro";
+
+const speakers = [
+  {
+    name: "Ericka Carrillo",
+    title: `Cuidando la Mente y el Corazón de Nuestros Estudiantes.`,
+    image: "/src/assets/ERIKA 2.jpg",
+  },
+  {
+    name: "Patricia Ganem",
+    title: "Pensamiento Crítico",
+    image: "/src/assets/paty_ganem_square.png",
+  },
+  {
+    name: "David Betan",
+    title: "Evaluación Formativa y sus Técnicas",
+    image: "/src/assets/DR DAVID BETAN.jpg",
+  },
+  {
+    name: "Lorena Ladron de Guevara",
+    title: "Inclusividad y Ambientes Saludables de Trabajo",
+    image: "/src/assets/LORENA LADRON DE GUEVARA.jpg",
+  },
+  {
+    name: "Ely Leon",
+    title: "Como la Escuela Me Ayudo a Pensar con el corazón",
+    image: "/src/assets/Photoroom-20250218_194832.png",
+  },
+];
+
+
+
+---
+<style>
+   .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+</style>
+
+<HeroSection
+  isMain={true}
+  title="3er Congreso Educativo"
+  subtitle="Educando desde el Corazón."
+  image="/src/assets/hero_image.JPG"
+  children="S&aacute;bado 24 de Mayo del 2025">
+</HeroSection>
+
+<Speaker speakers={speakers} />
+
+<Stepbystep />
+
+
+<section class="hero"> 
+  <h1>Contactanos</h1>
+</section>
+
+

@@ -4,14 +4,17 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
-
 export default defineConfig({
-  site: 'https://AldoRodriguez28.github.io',
-  base: '/agrupando-a-mexico/',
+  site: 'http://104.251.222.179',
+  base: '/',
+  prefetch: true,
   integrations: [tailwind(), mdx(), sitemap(), icon()],
   vite: {
     optimizeDeps: {
-      include: ['astro-icon'], // Precompila 'astro-icon'
+      include: ['astro-icon'],
     },
+  },
+  esbuild: {
+    charset: 'utf8', // Asegura que los archivos se manejen con UTF-8
   },
 });
