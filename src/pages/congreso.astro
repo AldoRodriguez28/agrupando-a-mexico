@@ -2,32 +2,45 @@
 import Speaker from "@components/speaker.astro";
 import HeroSection from "../components/herosection.astro";
 import Stepbystep from "@components/stepbystep.astro";
+import heroImage from "assets/hero_image.webp"
+import erikaImage from "assets/erika-r-carrillo.webp";
+import patyImage from "assets/paty_ganem_square.webp";
+import davidImage from "assets/DR-DAVID-BETAN.webp";
+import lorenaImage from "assets/LORENA-LADRON-DE-GUEVARA.webp";
+import elyImage from "assets/Photoroom-20250218_194832.webp";
+import Layout from "@layouts/Layout.astro";
+
+
+
+
+
+
 
 const speakers = [
   {
     name: "Ericka Carrillo",
     title: `Cuidando la Mente y el Corazón de Nuestros Estudiantes.`,
-    image: "/src/assets/ERIKA 2.jpg",
+    image: erikaImage,
   },
   {
     name: "Patricia Ganem",
     title: "Pensamiento Crítico",
-    image: "/src/assets/paty_ganem_square.png",
+    image: patyImage,
   },
   {
     name: "David Betan",
     title: "Evaluación Formativa y sus Técnicas",
-    image: "/src/assets/DR DAVID BETAN.jpg",
+    image: davidImage,
   },
   {
     name: "Lorena Ladron de Guevara",
     title: "Inclusividad y Ambientes Saludables de Trabajo",
-    image: "/src/assets/LORENA LADRON DE GUEVARA.jpg",
+    image: lorenaImage,
   },
   {
     name: "Ely Leon",
     title: "Como la Escuela Me Ayudo a Pensar con el corazón",
-    image: "/src/assets/Photoroom-20250218_194832.png",
+    image: elyImage,
   },
 ];
 
@@ -48,21 +61,25 @@ const speakers = [
   }
 </style>
 
-<HeroSection
-  isMain={true}
-  title="3er Congreso Educativo"
-  subtitle="Educando desde el Corazón."
-  image="/src/assets/hero_image.JPG"
-  children="S&aacute;bado 24 de Mayo del 2025">
-</HeroSection>
 
-<Speaker speakers={speakers} />
+<Layout title="congreso">
+  <HeroSection
+    isMain={true}
+    title="3er Congreso Educativo"
+    subtitle="Educando desde el Coraz&oacute;n."
+    image={heroImage}
+    children="">
+  </HeroSection>
+  
+  <Speaker speakers={speakers} />
+  
+  <Stepbystep />
+  
+  
+  <section class="hero"> 
+    <h1>Contactanos</h1>
+  </section>
+</Layout>
 
-<Stepbystep />
-
-
-<section class="hero"> 
-  <h1>Contactanos</h1>
-</section>
 
 

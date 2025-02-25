@@ -1,23 +1,59 @@
+---
+const { fecha } = Astro.props;
+---
 
-<section class="hero bg-blue-100 py-4 text-center"> 
-  <h2 class="text-[15px] font-bold mb-0 lg:text-3xl ">¡Días para el lanzamiento!</h2>
-    <div id="countdown" class="text-lg font-semibold text-blue-700 lg:text-3xl"></div>
-    <script>
-      const countdownElement = document.getElementById('countdown');
-      const eventDate = new Date('2025-01-15T10:00:00');
-      const interval = setInterval(() => {
-        const now = new Date();
-        const diff = eventDate - now;
-        if (diff <= 0) {
-          countdownElement.textContent = "¡El evento ya comenzó!";
-          clearInterval(interval);
-          return;
-        }
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        countdownElement.textContent = `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
-      }, 1000);
-    </script>
-  </section>
+<style>
+  /* Efecto de resplandor en el contador */
+  .countdown-container span {
+    text-shadow: 0px 0px 8px rgba(255, 215, 0, 0.8);
+  }
+  .hero{
+    width: 100vw;
+    background-color: rgb(87 1 83 / 49%);
+    /* background-color:linear-gradient(90deg,  rgba(128, 0, 128, 0.9), rgba(0, 0, 128, 0.9)); */
+  }
+</style>
+
+<section class="hero flex flex-col items-center justify-cente py-6 px-4 text-center">
+  <h2 class="text-lg font-bold text-white md:text-3xl">
+    24 de Mayo del 2025
+  </h2>
+  <div 
+    id="countdown"
+    class="countdown-container  text-white font-semibold text-lg md:text-3xl rounded-lg shadow-lg mt-2"
+  >
+    Cargando...
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const countdownElement = document.getElementById('countdown');
+    const eventDate = new Date('2025-05-24T10:00:00');
+    
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+
+      if (diff <= 0) {
+        countdownElement.textContent = "¡El evento ya comenzó!";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `
+        <span class="text-yellow-400">${days}</span> días, 
+        <span class="text-yellow-400">${hours}</span> horas, 
+        <span class="text-yellow-400">${minutes}</span> minutos, 
+        <span class="text-yellow-400">${seconds}</span> segundos
+      `;
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  });
+</script>

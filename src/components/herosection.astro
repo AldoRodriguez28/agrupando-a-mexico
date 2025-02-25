@@ -1,5 +1,20 @@
 ---
+import Countdown from "./countdown.astro";
+
 const { title, subtitle, image, children } = Astro.props;
+
+// Decodificar los acentos correctamente
+const decodeText = (text) => {
+  if (!text) return "";
+  const decoder = new TextDecoder("utf-8");
+  return decoder.decode(new TextEncoder().encode(text));
+};
+
+const safeTitle = decodeText(title);
+const safeSubtitle = decodeText(subtitle);
+
+const eventDate = new Date('2025-05-24T10:00:00');
+
 ---
 
 <style>
@@ -36,13 +51,9 @@ const { title, subtitle, image, children } = Astro.props;
     text-align: center;
   }
   .hero h1 {
-    font-size: 4rem;
     font-weight: bold;
-    margin-bottom: 1rem;
   }
   .hero p {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
   }
   .logo-container {
     display: flex;
@@ -59,7 +70,6 @@ const { title, subtitle, image, children } = Astro.props;
   }
   .cta-container {
     display: flex;
-    gap: 2rem;
     margin-top: 2rem;
     flex-wrap: wrap;
     justify-content: center;
@@ -69,7 +79,6 @@ const { title, subtitle, image, children } = Astro.props;
     border: 2px solid white;
     color: white;
     padding: 1rem 2rem;
-    font-size: 1.5rem;
     border-radius: 50px;
     cursor: pointer;
     transition: transform 0.3s ease, background 0.3s ease;
@@ -79,11 +88,15 @@ const { title, subtitle, image, children } = Astro.props;
     transform: scale(1.05);
   }
   @media screen and (max-width: 768px), screen and (max-device-width: 768px) {
+    .hero-content {
+    margin-top: 16%;
+    }
     .hero h1 {
-      font-size: 8rem;
+      font-size: 3.5rem;
+      line-height: normal;
     }
     .hero p {
-      font-size: 4rem;
+      font-size: 1.5rem;
     }
     .logo-container {
       flex-direction: row;
@@ -91,30 +104,32 @@ const { title, subtitle, image, children } = Astro.props;
       top: 5%;
     }
     .logo-container img {
-      max-width: 22rem;
+
+      max-width: 100px;
     }
     .cta-container {
-      flex-direction: row;
-      gap: 6rem;
+      flex-direction: column;
+      gap: 1rem;
       align-items: center;
     }
     .cta-button {
-      font-size: 2.5rem;
     }
   }
 </style>
 
-<section class="hero" style={`background-image: url(${image})`}>
+<section class="hero" style={`background-image: url(${image.src.toString()})`}>
   <div class="logo-container">
     <img src="/src/assets/logo_agrupando_a_mexico_white.png" alt="Logo_agrupando_a_mexico" />
     <img src="/src/assets/Grupo-Loga-white.png" alt="Logo_loga" />
   </div>
 
   <div class="hero-content">
-    <h1>{title}</h1>
-    <p>{subtitle}</p>
+    <h1>{safeTitle}</h1>
+    <p>"{safeSubtitle}"</p>
     <div class="fecha_conferencia">
-      <p>{children}</p>  
+
+      <Countdown fecha={eventDate}/>
+      <span>{children}</span>  
     </div>
     <div class="cta-container">
       <a href="#speakers"  class="cta-button">Saber m&aacute;s</a>

@@ -1,9 +1,9 @@
 ---
+import Picture from "astro/components/Picture.astro";
+
 const { speakers } = Astro.props;
 
-function toUTF8(text) {
-  return new TextDecoder("utf-8").decode(new TextEncoder().encode(text));
-}
+
 ---
 
 <style>
@@ -42,7 +42,7 @@ function toUTF8(text) {
   :global(.container_white) {
     text-align: center;
     border-radius: 50%;
-    width: 100%;
+    width: 10rem;
     height: 10rem;
     display: flex;
     justify-content: center;
@@ -86,22 +86,17 @@ function toUTF8(text) {
       width: 80%;
     }
     :global(.container_white) {
-      width: 16rem;
-      height: 16rem;
+
     }
     :global(.speaker-image-container) {
-      width: 14rem;
-      height: 14rem;
+
     }
     :global(.speaker-card img) {
-      width: 12rem;
-      height: 12rem;
+
     }
     :global(.speaker-card h3) {
-    font-size: 3rem;
     }
     :global(.speaker-card p) {
-      font-size: 2rem;
     }
   }
 </style>
@@ -113,11 +108,11 @@ function toUTF8(text) {
       <div class="speaker-card">
         <div class="container_white items-center justify-center">
             <div class="speaker-image-container">
-                <img src={speaker.image} alt={speaker.name} />
+                <Picture src={speaker.image} alt={speaker.name} />
             </div>
         </div>
         <h3>{speaker.name}</h3>
-        <p>{toUTF8(speaker.title)}</p>
+        <p>{speaker.title}</p> 
       </div>
     ))}
   </div>
