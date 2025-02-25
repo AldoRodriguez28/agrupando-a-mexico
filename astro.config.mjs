@@ -7,14 +7,10 @@ import icon from "astro-icon";
 export default defineConfig({
   site: 'http://104.251.222.179',
   base: '/',
-  prefetch: true,
   integrations: [tailwind(), mdx(), sitemap(), icon()],
   vite: {
     optimizeDeps: {
       include: ['astro-icon'],
     },
-  },
-  esbuild: {
-    charset: 'utf8', // Asegura que los archivos se manejen con UTF-8
   },
 });
