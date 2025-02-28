@@ -1,6 +1,9 @@
 ---
-const price = "Costo: $400 MXN";
+const price = "$800 MXN";
 const accountNumber = "Clabe Interbancaria: 002905905005317530 - Banco Banamex";
+const locationName = "Hotel Ramada Veracruz";
+const mapsLink = "https://www.google.com/maps/place/Ramada+by+Wyndham+Veracruz/@19.194203,-96.139682,15z/";
+
 ---
 <section class="subscription-process">
   <div class="container">
@@ -12,6 +15,17 @@ const accountNumber = "Clabe Interbancaria: 002905905005317530 - Banco Banamex";
     <div class="price-box">
       <p class="price-text">💰 <strong>Costo:</strong> <span class="highlight">{price}</span></p>
       <p class="account-text">Depósito a: <strong>{accountNumber}</strong></p>
+    </div>
+
+     <!-- 📍 Ubicación del Congreso -->
+     <div class="location-box">
+      <h3 class="location-title">📍 Ubicación del Congreso</h3>
+      <p class="location-text">
+        El evento se llevará a cabo en el <strong>{locationName}</strong>.
+      </p>
+      <a href={mapsLink} target="_blank" class="location-button">
+        Ver ubicación en Google Maps
+      </a>
     </div>
 
     <div class="steps-container">
@@ -139,4 +153,41 @@ const accountNumber = "Clabe Interbancaria: 002905905005317530 - Banco Banamex";
       max-width: 90%;
     }
   }
+
+  /* 📍 Ubicación */
+.location-box {
+  margin-top: 15px;
+  padding: 15px;
+  background: #eef2ff; /* Fondo azul claro */
+  border-radius: 10px;
+  text-align: center;
+}
+
+.location-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.location-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.location-button {
+  background: #007bff;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.location-button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
 </style>
