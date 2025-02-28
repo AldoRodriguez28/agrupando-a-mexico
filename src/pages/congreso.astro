@@ -9,6 +9,7 @@ import davidImage from "assets/DR-DAVID-BETAN.webp";
 import lorenaImage from "assets/LORENA-LADRON-DE-GUEVARA.webp";
 import elyImage from "assets/Photoroom-20250218_194832.webp";
 import Layout from "@layouts/Layout.astro";
+import Contactanoscongreso from "@components/contactanoscongreso.astro";
 
 
 
@@ -19,27 +20,32 @@ import Layout from "@layouts/Layout.astro";
 const speakers = [
   {
     name: "Ericka Carrillo",
-    title: `Cuidando la Mente y el Corazón de Nuestros Estudiantes.`,
+    title: "Cuidando la mente y el corazón de nuestros estudiantes",
+    purpose: "El trabajo de una maestra o un maestro implica estrategias de cuidado, por lo que identificarán la necesidad de estar atentos a los diversos riesgos externos que pueden vivir los estudiantes y que afecten su mente y su corazón.",    
     image: erikaImage,
   },
   {
     name: "Patricia Ganem",
-    title: "Pensamiento Crítico",
+    title: "Para pensar desde el corazón se requiere un fuerte Pensamiento Crítico",
+    purpose: "Los participantes identificarán las diversas actividades que pueden implementar desde el aula para lograr que el estudiante piense de forma crítica.",
     image: patyImage,
   },
   {
     name: "David Betan",
-    title: "Evaluación Formativa y sus Técnicas",
+    title: "Evaluación formativa y sus técnicas para pensar con el corazón",
+    purpose: "Al concluir la ponencia los participantes identificarán la evaluación formativa y sus herramientas como un modelo que les permita a los estudiantes pensar desde el corazón.",
     image: davidImage,
   },
   {
     name: "Lorena Ladron de Guevara",
-    title: "Inclusividad y Ambientes Saludables de Trabajo",
+    title: "Inclusividad y ambientes saludables de trabajo, la condición para pensar desde el corazón",
+    purpose: "Las maestras y los maestros revisarán los diversos factores que generan inclusión como una condición para propiciar un ambiente saludable de trabajo dentro del aula.",
     image: lorenaImage,
   },
   {
     name: "Ely Leon",
-    title: "Como la Escuela Me Ayudo a Pensar con el corazón",
+    title: "Educando con el Corazón desde el hogar",
+    purpose: "No hay que olvidar que el hogar siempre debe ser la primera escuela. Tanto maestros, escuelas, sociedad y padres de familia debemos trabajar juntos para lograr una verdadera educación.",
     image: elyImage,
   },
 ];
@@ -67,6 +73,7 @@ const speakers = [
     isMain={true}
     title="3er Congreso Educativo"
     subtitle="Educando desde el Coraz&oacute;n."
+    price="Costo: $1,200 MXN"
     image={heroImage}
     children="">
   </HeroSection>
@@ -74,11 +81,7 @@ const speakers = [
   <Speaker speakers={speakers} />
   
   <Stepbystep />
-  
-  
-  <section class="hero"> 
-    <h1>Contactanos</h1>
-  </section>
+  <Contactanoscongreso />
 </Layout>
 
 

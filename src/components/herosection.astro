@@ -5,7 +5,7 @@ import loganImage from "@assets/Grupo-Loga-white.png"
 import logoAgrupandoMexico from "@assets/logo_agrupando_a_mexico_white.png"
 
 
-const { title, subtitle, image, children } = Astro.props;
+const { title, subtitle,price, image, children } = Astro.props;
 
 // Decodificar los acentos correctamente
 const decodeText = (text) => {
@@ -16,6 +16,8 @@ const decodeText = (text) => {
 
 const safeTitle = decodeText(title);
 const safeSubtitle = decodeText(subtitle);
+const safePrice = decodeText(price);
+
 
 const eventDate = new Date('2025-05-24T10:00:00');
 
@@ -58,6 +60,13 @@ const eventDate = new Date('2025-05-24T10:00:00');
     font-weight: bold;
   }
   .hero p {
+  }
+  .hero-price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFD700; /* Amarillo dorado */
+    text-shadow: 0px 0px 5px rgba(255, 215, 0, 0.8);
+    margin-top: 10px;
   }
   .logo-container {
     display: flex;
@@ -131,6 +140,9 @@ const eventDate = new Date('2025-05-24T10:00:00');
   <div class="hero-content">
     <h1>{safeTitle}</h1>
     <p>"{safeSubtitle}"</p>
+      
+    <!-- 🔥 Aquí se muestra el precio -->
+    <p class="hero-price">{safePrice}</p>
     <div class="fecha_conferencia">
 
       <Countdown fecha={eventDate}/>

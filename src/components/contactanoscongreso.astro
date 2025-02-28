@@ -1,0 +1,97 @@
+---
+import iconWhatsapp from "assets/WhatsApp_icon.webp";
+import Picture from "astro/components/Picture.astro";
+
+const whatsappNumber = "522283051090"; // Reemplaza con tu número de WhatsApp con código de país
+const whatsappMessage = "¡Hola! Quiero más información sobre el Congreso Educativo."; 
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+---
+
+<style>
+  .contact-hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    background: linear-gradient(135deg, #4a00e0, #8e2de2);
+    overflow: hidden;
+  }
+
+  .contact-content {
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .contact-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .whatsapp-button {
+    background: #25d366;
+    color: white;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .whatsapp-button:hover {
+    background: #1eb656;
+    transform: scale(1.05);
+  }
+
+  .whatsapp-button img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain; /* Evita distorsión */
+  }
+
+  @media screen and (max-width: 768px) {
+    .contact-title {
+      font-size: 2.5rem;
+    }
+    .contact-text {
+      font-size: 1.2rem;
+    }
+    .whatsapp-button {
+      font-size: 1.5rem;
+      padding: 0.8rem 1.5rem;
+    }
+    .whatsapp-button img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+</style>
+
+<section class="contact-hero">
+  <div class="contact-content">
+    <h2 class="contact-title">¿Tienes dudas sobre el Congreso?</h2>
+    <p class="contact-text">Envíanos un mensaje por WhatsApp y resolveremos todas tus preguntas.</p>
+    <a href={whatsappLink} target="_blank" class="whatsapp-button">
+      <Picture src={iconWhatsapp} alt="WhatsApp" />
+      Contactar por WhatsApp
+    </a>
+  </div>
+</section>
