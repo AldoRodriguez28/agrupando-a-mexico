@@ -1,8 +1,8 @@
 ---
 import { Picture } from "astro:assets";
 import Countdown from "./countdown.astro";
-import loganImage from "@assets/Grupo-Loga-white.png"
-import logoAgrupandoMexico from "@assets/logo_agrupando_a_mexico_white.png"
+import loganImage from "@assets/Grupo Loga (1).png"
+import logoAgrupandoMexico from "@assets/logo_agrupando_a_mexico.png"
 import logoCongreso from "@assets/logo_congreso_.png"
 
 
@@ -45,7 +45,8 @@ const eventDate = new Date('2025-05-24T10:00:00');
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(128, 0, 128, 0.8), rgba(0, 0, 128, 0.8));
+    /* background: linear-gradient(90deg, rgba(128, 0, 128, 0.8), rgba(0, 0, 128, 0.8)); */
+    background: linear-gradient(90deg, rgba(128, 0, 128, 0.6), rgba(0, 0, 128, 0.6));
     z-index: 1;
   }
   .hero-content {
@@ -142,11 +143,12 @@ const eventDate = new Date('2025-05-24T10:00:00');
 <section class="hero" style={`background-image: url(${image.src.toString()})`}>
   <div class="logo-container">
     <Picture src={logoAgrupandoMexico} alt="Logo_agrupando_a_mexico" />
+    <Picture src={logoCongreso} alt="Logo_congreso"/>
     <Picture src={loganImage} alt="Logo_loga" />
+
   </div>
 
   <div class="hero-content">
-    <Picture src={logoCongreso} alt="Logo_congreso"/>
      <h1>{safeTitle}</h1>
     <p>"{safeSubtitle}"</p>
       
