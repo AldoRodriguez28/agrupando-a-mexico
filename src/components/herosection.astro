@@ -85,6 +85,7 @@ const eventDate = new Date('2025-05-24T10:00:00');
   :global(.logo-container img) {
     max-width: 150px;
     height: auto;
+    filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px white);
   }
   .cta-container {
     display: flex;
@@ -105,6 +106,9 @@ const eventDate = new Date('2025-05-24T10:00:00');
   .cta-button:hover {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.05);
+  }
+  .without_counter{
+    height: 375px;
   }
   @media screen and (max-width: 768px), screen and (max-device-width: 768px) {
     .hero-content {
