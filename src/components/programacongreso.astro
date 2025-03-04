@@ -1,0 +1,100 @@
+---
+const programa = [
+  { hora: "8:30 AM", actividad: "Registro" },
+  { hora: "9:00 AM", actividad: "Inicio e Inauguración del Congreso" },
+  { hora: "11:30 AM", actividad: "Coffee Break ☕" },
+  { hora: "2:00 PM", actividad: "Comida 🍽️" },
+  { hora: "5:00 PM", actividad: "Clausura del Congreso" },
+];
+---
+
+<style>
+  .programa-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f0f4ff, #e5e9ff);
+    border-radius: 12px;
+  }
+
+  .programa-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .programa-subtitle {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+
+  .programa-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .programa-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    padding: 15px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .programa-item:hover {
+    transform: scale(1.03);
+  }
+
+  .programa-hora {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4a00e0;
+  }
+
+  .programa-actividad {
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: 500;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .programa-section {
+      padding: 40px 15px;
+    }
+    .programa-title {
+      font-size: 2.4rem;
+    }
+    .programa-subtitle {
+      font-size: 1.3rem;
+    }
+    .programa-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+  }
+</style>
+
+<section class="programa-section">
+  <h2 class="programa-title">🗓️ Programa del Evento</h2>
+  <p class="programa-subtitle">Conoce la agenda del congreso y no te pierdas ninguna actividad importante.</p>
+  
+  <div class="programa-container">
+    {programa.map(item => (
+      <div class="programa-item">
+        <span class="programa-hora">{item.hora}</span>
+        <span class="programa-actividad">{item.actividad}</span>
+      </div>
+    ))}
+  </div>
+</section>
